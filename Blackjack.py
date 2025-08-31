@@ -55,9 +55,9 @@ def main():
 
     for i in range(players):
         for j in range(len(player_cards[i])):
-            print("-" * 160)
             # ask players without blackjack if they want to draw another card
             if player_score[i][j] != 0:
+                print("-" * 160)
                 choose_card = True
                 while choose_card:
                     # displays scores and cards of player after each draw
@@ -69,20 +69,20 @@ def main():
                         player_cards[i][j] = b.deal_card(player_cards[i][j], 1)
                         player_score[i][j] = b.calculate_score(player_cards[i][j])
                         # stop the card drawing process if score crosses 21 and display final hand
-                        if player_score[i][j] > 21:
+                        if player_score[i][j] >= 21:
                             choose_card = False
-                            b.final_scores(i + 1, j + 1, player_cards[i][j], player_score[i][j])
+                            b.display_scores(i + 1, j + 1, player_cards[i][j], player_score[i][j])
                     elif card_choice.lower().strip() == "n":
                         choose_card = False
                     else:
                         print("Type 'y' or 'n'.")
                         continue
-        print("-" * 160)
-        time.sleep(1.5)
-        if i != players - 1:
-            print("\n" * 20)
-        else:
-            print("\n" * 10)    
+                print("-" * 160)
+                time.sleep(1.5)
+                if i != players - 1:
+                    print("\n" * 20)
+                else:
+                    print("\n" * 10)    
                         
     # dealer draws cards until dealer score = 17  
     while sum(dealer_cards) < 17:
