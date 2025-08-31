@@ -7,11 +7,6 @@ def display_scores(player_num, hand_num, player_cards, player_score):
     print(f"Player {player_num} - Hand {hand_num}")
     print(f"Your cards: {player_cards}, Current score: {player_score}")
 
-def final_scores(player_num, hand_num, player_cards, player_score):
-    """Function to display final scores of the players"""
-    print(f"Player {player_num} - Hand {hand_num}")
-    print(f"Final hand: {player_cards}, Final score: {player_score}")
-
 def deal_card(user_cards, no_of_cards):
     """Deals card and adds it to the players card list"""
     for i in range(no_of_cards):
@@ -32,7 +27,9 @@ def compare(user_score, dealer_score, dealer_cards):
     """Function to compare dealer and player score"""
     # player loses if he goes bust
     if user_score > 21:
-        greeting = "You went over. You lose 😭"
+        print(f"Dealer's final hand: {dealer_cards[0]}, Final score: {dealer_score}")
+        print("You went over. You lose 😭")
+        return 0
     # player wins in case he has a blackjack and dealer doesn't
     elif user_score == 0:
         if user_score == dealer_score:
