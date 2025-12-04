@@ -68,7 +68,8 @@ def ace_check(card_list):
 
 def dealer_logic(dealer_cards):
     """Function to replace 11 by 1 in case of soft 17 (Ace + 6)"""
-    if sum(dealer_cards) == 17 and 11 in dealer_cards:
+    if sum(dealer_cards) == 17 and 11 in dealer_cards and 6 in dealer_cards:
         index = dealer_cards.index(11)
         dealer_cards[index] = 1
     return dealer_cards
+
