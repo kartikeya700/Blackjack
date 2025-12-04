@@ -32,7 +32,9 @@ def compare(user_score, dealer_score, dealer_cards):
         return 0
     # player wins in case he has a blackjack and dealer doesn't
     elif user_score == 0:
-        greeting = "Win with a Blackjack 😎"
+        print(f"Dealer's final hand: {dealer_cards[0]}, Final score: {dealer_score}")
+        print("Win with a Blackjack 😎")
+        return 0
     else:
         if dealer_score == 0:
             greeting = "Dealer has a Blackjack. You lose 😭"
@@ -69,5 +71,6 @@ def dealer_logic(dealer_cards):
         index = dealer_cards.index(11)
         dealer_cards[index] = 1
     return dealer_cards
+
 
 
